@@ -34,6 +34,12 @@ namespace TestdataBuilder
                     Remarks = "Volgende keer langer in de oven"
                 });
 
+                context.Dishes.Add(new Dish
+                {
+                    Name = "Steak met champignonnenroomsaus",
+                    Rating = 5
+                });
+
                 context.SaveChanges();
             }
 
