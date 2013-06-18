@@ -1,0 +1,18 @@
+﻿@model List<DinnerManager.Entities.Dish>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Toegevoegde gerechten</h2>
+
+<div>
+@foreach (var d in Model)
+{
+    <ul>
+        <li>
+            @d.Name
+        </li>
+    </ul>
+}
+</div>
