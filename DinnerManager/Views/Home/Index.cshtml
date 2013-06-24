@@ -1,4 +1,4 @@
-﻿@model List<DinnerManager.Entities.Dish>
+﻿@model List<DinnerManager.Models.IndexViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -7,11 +7,11 @@
 <h2>Toegevoegde gerechten</h2>
 
 <div>
-@foreach (var d in Model)
+@foreach (var m in Model)
 {
     <ul>
         <li>
-            @d.Name
+            @Html.DisplayFor(item => m.Date): @Html.DisplayFor(item => m.Name)
         </li>
     </ul>
 }

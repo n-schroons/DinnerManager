@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="DinnerManagerContext.cs" />
     <Compile Include="Dish.cs" />
+    <Compile Include="Meal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

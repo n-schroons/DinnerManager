@@ -16,5 +16,6 @@ namespace DinnerManager.Entities
         }
 
         public DbSet<Dish> Dishes { get; set; }
+        public DbSet<Meal> Meals { get; set; }
     }
 }

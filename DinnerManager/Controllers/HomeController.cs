@@ -1,4 +1,5 @@
 ﻿using DinnerManager.Entities;
+using DinnerManager.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,20 @@ namespace DinnerManager.Controllers
         {
             using (var context = new DinnerManagerContext("DinnerManager"))
             {
-                return View(context.Dishes.ToList());
+                var meals = context.Meals.ToList();
+                var viewmodels = new List<IndexViewModel>();
+
+                foreach (var m in meals)
+                {
+                    viewmodels.Add(new IndexViewModel
+                    {
+                        Date = m.Date.d,
+                        Name = m.Dish.Name,
+                        Rating = m.Dish.Rating
+                    });
+                }
+
+                return View(viewmodels);
             }
         }
 
