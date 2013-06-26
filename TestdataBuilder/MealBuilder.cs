@@ -7,13 +7,17 @@ using System.Threading.Tasks;
 
 namespace TestdataBuilder
 {
-    internal class MealBuilder
+    internal class MealBuilder : ITestdataBuilder<Meal>
     {
         private Meal _meal;
 
         public MealBuilder()
         {
-            this._meal = new Meal();
+            this._meal = new Meal
+            {
+                Date = DateTime.Now,
+                Dish = new DishBuilder().Build()
+            };
         }
 
         public MealBuilder WithDate(DateTime date)

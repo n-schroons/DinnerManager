@@ -7,13 +7,17 @@ using System.Threading.Tasks;
 
 namespace TestdataBuilder
 {
-    internal class DishBuilder
+    internal class DishBuilder : ITestdataBuilder<Dish>
     {
         private Dish _dish;
 
         public DishBuilder()
         {
-            this._dish = new Dish();
+            this._dish = new Dish
+            {
+                Name = "Standaard test gerecht",
+                Rating = 4
+            };
         }
 
         public DishBuilder WithName(string name)
