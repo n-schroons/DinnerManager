@@ -22,7 +22,7 @@ namespace TestdataBuilder
 
         public MealBuilder WithDate(DateTime date)
         {
-            this._meal.Date = date;
+            this._meal.Date = date.Date;
             return this;
         }
 

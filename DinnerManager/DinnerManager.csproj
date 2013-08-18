@@ -123,10 +123,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MealController.cs" />
+    <Compile Include="Core\BuildDataInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CreateMealViewModel.cs" />
     <Compile Include="Models\IndexViewModel.cs" />
+    <Compile Include="Models\SimpleDishPickerViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -214,6 +218,8 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Meal\Create.cshtml" />
+    <Content Include="Views\Shared\SimpleDishPicker.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -225,6 +231,10 @@
     <ProjectReference Include="..\DinnerManager.Entities\DinnerManager.Entities.csproj">
       <Project>{4dbffad5-ad04-45f9-9182-d8d454dabd44}</Project>
       <Name>DinnerManager.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestdataBuilder\TestdataBuilder.csproj">
+      <Project>{e552e2af-c02b-4312-8320-8f5ed7c24d1f}</Project>
+      <Name>TestdataBuilder</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

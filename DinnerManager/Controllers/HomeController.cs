@@ -17,14 +17,17 @@ namespace DinnerManager.Controllers
         {
             using (var context = new DinnerManagerContext("DinnerManager"))
             {
-                var meals = context.Meals.ToList();
+                var baseline = DateTime.Now.Date.AddDays(7);
+                var meals = context.Meals.Where(m => m.Date <= baseline)
+                                         .OrderBy(m => m.Date);
+
                 var viewmodels = new List<IndexViewModel>();
 
                 foreach (var m in meals)
                 {
                     viewmodels.Add(new IndexViewModel
                     {
-                        Date = m.Date.d,
+                        Date = m.Date,
                         Name = m.Dish.Name,
                         Rating = m.Dish.Rating
                     });

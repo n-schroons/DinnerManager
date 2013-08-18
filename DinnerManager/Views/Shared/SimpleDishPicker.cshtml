@@ -1,0 +1,18 @@
+﻿@model DinnerManager.Models.SimpleDishPickerViewModel
+
+<span>Dit is de simple dish picker</span>
+
+<div>
+    @Html.DropDownListFor(model => model.SelectedDishId, new SelectList(Model.Dishes, "Id", "Name"))
+</div>
+
+<div>
+@foreach (var m in Model.Dishes)
+{
+    <ul>
+        <li>
+            @Html.DisplayFor(item => m.Name)
+        </li>   
+    </ul>
+}
+</div>

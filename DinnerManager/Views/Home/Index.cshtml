@@ -4,15 +4,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Toegevoegde gerechten</h2>
+<h2>Deze week</h2>
 
 <div>
 @foreach (var m in Model)
 {
     <ul>
         <li>
-            @Html.DisplayFor(item => m.Date): @Html.DisplayFor(item => m.Name)
-        </li>
+            <div>@Html.DisplayFor(item => m.Date)</div> 
+            <div>@Html.DisplayFor(item => m.Name)</div>
+        </li>   
     </ul>
 }
 </div>

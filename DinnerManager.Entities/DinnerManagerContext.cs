@@ -10,6 +10,11 @@ namespace DinnerManager.Entities
 {
     public class DinnerManagerContext : DbContext
     {
+        public DinnerManagerContext() : base("DinnerManager")
+        {
+            this.Database.CreateIfNotExists();
+        }
+
         public DinnerManagerContext(string connectionString) : base(connectionString)
         {
             this.Database.CreateIfNotExists();
