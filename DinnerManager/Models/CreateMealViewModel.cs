@@ -10,6 +10,7 @@ namespace DinnerManager.Models
     public class CreateMealViewModel
     {
         [DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString="{0:yyyy-MM-dd}", ApplyFormatInEditMode=true)]
         public DateTime Date { get; set; }
         public IEnumerable<Dish> Dishes { get; set; }
         public int SelectedDishId { get; set; }

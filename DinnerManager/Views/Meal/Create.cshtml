@@ -1,4 +1,12 @@
 ﻿@model DinnerManager.Models.CreateMealViewModel
+<link href="~/Content/themes/base/jquery.ui.datepicker.css" rel="stylesheet" />
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.date').datepicker({
+            dateFormat: 'dd-mm-yy'
+        });
+    });
+</script>
 
 @{
     ViewBag.Title = "Create";
@@ -17,7 +25,7 @@
             @Html.LabelFor(model => model.Date)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Date)
+            @Html.TextBoxFor(model => model.Date, "{0:dd-MM-yyyy}", new { @class = "date" })
             @Html.ValidationMessageFor(model => model.Date)
         </div>
         <div>
@@ -33,7 +41,3 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
