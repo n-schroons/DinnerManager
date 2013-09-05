@@ -1,19 +1,39 @@
-﻿@model List<DinnerManager.Models.IndexViewModel>
-
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
-<h2>Deze week</h2>
+<script src="~/Scripts/fullcalendar.js"></script>
+<script src="~/Scripts/json2.js"></script>
+<link href="~/Content/themes/base/fullcalendar.css" rel="stylesheet" />
 
-<div>
-@foreach (var m in Model)
-{
-    <ul>
-        <li>
-            <div>@Html.DisplayFor(item => m.Date)</div> 
-            <div>@Html.DisplayFor(item => m.Name)</div>
-        </li>   
-    </ul>
-}
-</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.getJSON('Home/GetMeals', null, function (data) {
+            $('#calendar').fullCalendar({
+                events: data,
+                firstDay: 1,
+                editable: true,
+                defaultView: 'basicWeek',
+                eventDrop: function (meal) {
+                    $.ajax({
+                        url: 'home/updatemeal',
+                        type: 'POST',
+                        data: JSON.stringify({ id: meal.id, start: meal.start }, null, 2),
+                        contentType: 'application/json',
+                        success: function (data) {
+                            if (data.success) alert('gelukt');
+                            else alert(data.message);
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            alert(textStatus);
+                            alert(errorThrown);
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+
+<div id="calendar"></div>
